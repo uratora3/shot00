@@ -1,21 +1,21 @@
 #pragma once
-#include "Vec2.h"
+#include"Vec2.h"
 
-class Shot
+class ShotBase
 {
 public:
-	Shot();
-	virtual ~Shot();
+	ShotBase();
+	virtual ~ShotBase();
 
 	void setHandle(int handle) { m_handle = handle; }
 
 	//ショット開始
-	void start(Vec2 pos);
+	virtual void start(Vec2 pos);
 
 	// 更新
-	void update();
+	virtual void update();
 	// 表示
-	void draw();
+	virtual void draw();
 
 	//存在するか
 	bool isExist()const { return m_isExist; }

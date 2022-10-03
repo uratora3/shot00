@@ -1,13 +1,12 @@
 #include "DxLib.h"
-#include"game.h"
-#include "shot.h"
+#include "shotBase.h"
 
 namespace
 {
-	constexpr float kShotSpeed = 8.0f;
+	
 }
 
-Shot::Shot()
+ShotBase::ShotBase()
 {
 	m_handle = -1;
 	m_pos.x = 0.0f;
@@ -19,31 +18,23 @@ Shot::Shot()
 	m_isExist = false;
 }
 
-Shot::~Shot()
+ShotBase::~ShotBase()
 {
 
 }
 
-void Shot::start(Vec2 pos)
+void ShotBase::start(Vec2 pos)
 {
 	m_isExist = true;
 	m_pos += pos;
-
-	m_vec.x = kShotSpeed;
-	m_vec.y = 0.0f;
 }
-void Shot::update()
+
+void ShotBase::update()
 {
 	if (!m_isExist)return;
-	m_pos += m_vec;
-
-	if (m_pos.x > Game::kScreenWidth)
-	{
-		m_isExist = false;
-	}
 }
 // •\Ž¦
-void Shot::draw()
+void ShotBase::draw()
 {
 	if (!m_isExist)return;
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
