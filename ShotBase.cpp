@@ -26,7 +26,7 @@ ShotBase::~ShotBase()
 void ShotBase::start(Vec2 pos)
 {
 	m_isExist = true;
-	m_pos += pos;
+	m_pos = pos;
 }
 
 void ShotBase::update()

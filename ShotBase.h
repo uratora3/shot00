@@ -20,7 +20,7 @@ public:
 	//存在するか
 	bool isExist()const { return m_isExist; }
 
-private:
+protected:
 	// グラフィックハンドル
 	int m_handle;
 	// 表示位置
